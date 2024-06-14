@@ -1,10 +1,14 @@
 const express=require("express")
-const PORT=5555
+
+const dotenv=require("dotenv").config()
+const PORT= process.env.port
 const app=express()
 const mongoose=require("mongoose")
 app.use(express.json())
-mongoose.connect("mongodb+srv://ejiogu339:VYTZR5CopK1ckCTo@cluster0.hkqj20k.mongodb.net/").then(()=>{
-    console.log("connection to db successfully established")
+
+//I am tryting to test run something
+mongoose.connect(process.env.db).then(()=>{
+    console.log("connection  to db successfully established")
     app.listen(PORT,()=>{
         console.log(`server is running on port ${PORT}`);
     })
